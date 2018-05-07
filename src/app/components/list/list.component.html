@@ -1,1 +1,4 @@
-<app-list-item *ngFor="let todo of tasks; trackBy:identify" [task]="todo" (delete)="deleteTask($event)"></app-list-item>
+<app-list-item *ngFor="let todo of tasks;
+  trackBy:identify" [task]="todo"
+  (delete)="deleteTask($event)"
+  (change)="changeStatusOfTask($event)"></app-list-item>

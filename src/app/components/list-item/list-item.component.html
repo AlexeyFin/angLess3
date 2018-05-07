@@ -3,6 +3,6 @@
     <p class="card-text">{{task.title}}</p>
     <button class="btn btn-primary">Edit</button>
     <button class="btn btn-danger" (click)="deleteOneTask()">Delete</button>
-    <button class="btn btn-primary">Done</button>
+    <button class="btn btn-primary" (click)="changeStatusOfTask()">{{ task.completed ? 'Undone' : 'Done' }}</button>
   </div>
 </div>

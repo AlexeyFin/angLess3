@@ -11,6 +11,7 @@ import { Task } from "../../models/Task";
 export class ListItemComponent implements OnInit {
   @Input() task: Task;
   @Output() delete = new EventEmitter();
+  @Output() change = new EventEmitter();
 
   constructor(
     public server: JsonplaceholderService
@@ -22,6 +23,11 @@ export class ListItemComponent implements OnInit {
   deleteOneTask() {
     // Generate event
     this.delete.emit(this.task.id);
+  }
+
+  changeStatusOfTask() {
+    this.task.completed = !this.task.completed;
+    this.change.emit({id: this.task.id, status: this.task.completed});
   }
 
 }

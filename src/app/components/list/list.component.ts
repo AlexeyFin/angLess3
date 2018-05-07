@@ -32,6 +32,19 @@ export class ListComponent implements OnInit {
       this.tasks = this.tasks.filter(task => task.id !== id);
     });
   }
+  changeStatusOfTask(obj) {
+    console.log(obj);
+    this.server.changeStatusOfTask(obj).subscribe(data => {
+      this.tasks = this.tasks.filter(task => {
+        if (task.id === data.id) {
+          task.completed = data.completed;
+          return task
+        }
+        return task
+      })
+    })
+
+  }
 
   identify(index) {
     return index;
